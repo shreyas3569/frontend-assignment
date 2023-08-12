@@ -1,0 +1,224 @@
+@use './colors' as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans',
+    sans-serif;;
+}
+
+.Slider {
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 25px;
+
+    @media screen and (min-width: 767px) and (max-width:1024px) {
+      left: 0;
+
+    }
+    & .slick-dots {
+      margin: 20px;
+      bottom: unset;
+      width: 91%;
+
+      @media screen and (min-width:287px) and (max-width:426px) {
+        width: 60%;
+      }
+    }
+    & .slick-arrow {
+      position: absolute;
+      top: 50%;
+      display: block;
+      z-index: 3;
+      transform: translate(0, -50);
+      cursor: pointer;
+
+        &.next {
+          right: 0;
+          width: 20px;
+          height: 20px;
+          border: 1px solid $primary-gray;
+          color:$primary-gray;
+          border-radius: 50%;
+          position: absolute;
+          top: 115px;
+          padding: 7px;
+
+          &:hover {
+            color: $black;
+            border: 1px solid $black;
+          }
+
+          @media screen and (min-width:765px) and (max-width:1024px) {
+            display: none;
+          }
+
+          @media screen and (min-width:287px) and (max-width:426px) {
+            display: none;
+          }
+        }
+      &.prev {
+
+        width: 20px;
+        height: 20px;
+        border: 1px solid $secondary-gray;
+        color: $secondary-gray;
+        border-radius: 50%;
+        position: absolute;
+        top: 115px;
+        left: -50px;
+        padding: 7px;
+
+        &:hover {
+          color: $black;
+          border: 1px solid $black;
+        }
+
+        @media screen and (min-width:765px) and (max-width:1024px) {
+          display: none;
+        }
+
+        @media screen and (min-width:287px) and (max-width:426px) {
+          display: none;
+        }
+      }
+    }
+    &.slick-slide .slick-active {
+      width: unset;
+    }
+    & .slick-dots {
+      & li {
+        &.slick-active button:before {
+          font-size: 16px;
+          opacity: .75;
+          color:$orange;
+        }
+
+        button:before {
+          font-family: slick;
+          font-size: 16px;
+          line-height: 20px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          content: '•';
+          text-align: center;
+          color: $secondary-gray;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+
+  }
+
+  &__card {
+    position: relative;
+    width: 220px;
+    display: flex;
+    height: 250px;
+    @media screen and (min-width: 260px) and (max-width:456px) {
+      width:250px;
+      height:290px;
+      }
+    &.Slider__content__desc {
+      display: none;
+    }
+
+    &.Slider__content {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+    }
+
+    &:hover .Slider__content {
+      display: block;
+      transition: height 0.5s;
+      background-color:$secondary-black;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      color: $white;
+
+      &::before {
+        background-color: $orange;
+        content: "";
+        height: 100%;
+        width: 10px;
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    &__imgbox {
+      display: block;
+    }
+
+    &__imgbox img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: $white;
+    transition: height 0.5s;
+
+    &__desc {
+      display: none;
+    }
+
+    &__title {
+      text-align: center;
+      padding: 30px;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+  &__card:hover .Slider__content .Slider__content {
+    &__desc {
+      display: block;
+      margin-left: 20px;
+      margin-top: 40px;
+
+    }
+
+    &__title {
+      padding: unset;
+      text-align: left;
+      margin-left: 20px;
+    }
+  }
+
+}
+
+
+
+
+
+
